@@ -4,10 +4,10 @@ var analytics = require('../lib/analytics');
 var BaseView = require('./base-view');
 var classList = require('@braintree/class-list');
 var constants = require('../constants');
-
+var fs = require('fs');
 var addSelectionEventHandler = require('../lib/add-selection-event-handler');
 
-var paymentMethodHTML = "<div class=\"braintree-method__icon-container braintree-method__delete-container\">\n  <div class=\"braintree-method__icon braintree-method__delete\">\n    <svg width=\"48\" height=\"29\">\n      <use xlink:href=\"#iconX\"></use>\n    </svg>\n  </div>\n</div>\n\n<div class=\"braintree-method__logo\">\n  <svg width=\"40\" height=\"24\" class=\"@CLASSNAME\">\n    <use xlink:href=\"#@ICON\"></use>\n  </svg>\n</div>\n\n<div class=\"braintree-method__label\">@TITLE<br><div class=\"braintree-method__label--small\">@SUBTITLE</div></div>\n\n<div class=\"braintree-method__icon-container braintree-method__check-container\">\n  <div class=\"braintree-method__icon braintree-method__check\">\n    <svg height=\"100%\" width=\"100%\">\n      <use xlink:href=\"#iconCheck\"></use>\n    </svg>\n  </div>\n</div>\n";
+var paymentMethodHTML = fs.readFileSync(__dirname + '/../html/payment-method.html', 'utf8');
 
 function PaymentMethodView() {
   BaseView.apply(this, arguments);

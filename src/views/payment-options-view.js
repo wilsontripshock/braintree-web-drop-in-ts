@@ -3,10 +3,10 @@
 var analytics = require('../lib/analytics');
 var addSelectionEventHandler = require('../lib/add-selection-event-handler');
 var BaseView = require('./base-view');
-
+var fs = require('fs');
 var paymentOptionIDs = require('../constants').paymentOptionIDs;
 
-var paymentMethodOptionHTML = "<div class=\"braintree-option__logo\">\n  <svg width=\"48\" height=\"29\" class=\"@CLASSNAME\">\n    <use xlink:href=\"#@ICON\"></use>\n  </svg>\n</div>\n\n<div class=\"braintree-option__label\" aria-label=\"@OPTION_LABEL\">\n  @OPTION_TITLE\n  <div class=\"braintree-option__disabled-message\"></div>\n</div>\n";
+var paymentMethodOptionHTML = fs.readFileSync(__dirname + '/../html/payment-option.html', 'utf8');
 
 function PaymentOptionsView() {
   BaseView.apply(this, arguments);

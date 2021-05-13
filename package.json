@@ -1,7 +1,8 @@
 {
   "name": "braintree-web-drop-in",
   "version": "1.28.0",
-  "main": "index.js",
+  "main": "src/index.js",
+  "private": true,
   "scripts": {
     "build": "gulp build",
     "development": "gulp development",
@@ -21,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/braintree/braintree-web-dropin.git"
+    "url": "git+https://github.com/braintree/braintree-web-drop-in.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -75,9 +76,14 @@
     "braintree-web": "3.76.3",
     "promise-polyfill": "8.2.0"
   },
+  "browserify": {
+    "transform": [
+      "brfs",
+      "browserify-versionify"
+    ]
+  },
   "browserslist": [
     "last 2 versions",
     "iOS 8"
-  ],
-  "browser": "./dist/browser/dropin.js"
+  ]
 }
