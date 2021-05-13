@@ -22,7 +22,7 @@ get_package_json_version() {
   grep \"version\" package.json | cut -d':' -f2- | tr -d '" ,'
 }
 
-BT_DROPIN_DIR=~/bt/braintree-web-drop-in
+BT_DROPIN_DIR=~/bt/braintree-web-drop-in-ts
 
 cd "$BT_DROPIN_DIR"
 
